@@ -1,8 +1,10 @@
+#!/usr/bin/python3.8
+
 import sys
 
-out = ''
-for i in (sys.argv[1: ]):
-    out = out + ' ' + i.swapcase()
+str = ''
+for x in sys.argv[1:]:
+    str += x
 
-out = out[1: ]
-print (out[::-1])
+str_rev = str[::-1]
+print(str_rev.swapcase())

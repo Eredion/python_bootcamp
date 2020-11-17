@@ -1,14 +1,24 @@
+#! /usr/bin/python3.8
+
 import sys
 
-if len(sys.argv) == 1:
-    exit()
-if len(sys.argv) > 2 or sys.argv[1].isdigit() == 0 :
+str = "buenos dias"
+
+c = 0;
+
+for i in sys.argv:
+    c += 1
+
+if c != 2:
     print("ERROR")
     exit()
-i = int(sys.argv[1])
-if i == 0:
+try:
+    c = int(sys.argv[1])
+except:
+    exit("ERROR")
+if c == 0:
     print("I'm Zero.")
-elif i % 2 == 0:
+elif (c % 2 == 0):
     print("I'm Even.")
-else:
-    print("I'm Odd.")
+elif (c % 2 == 1):
+    print("I'm Even.")

@@ -1,36 +1,33 @@
+#! /usr/bin/python3
+
 import sys
+from termcolor import colored
 
-def print_error():
-    print("\033[1;34mInputError\033[0;0m", end = '')
-    print(": only two numbers\n")
-    print("\033[1;34mUsage\033[0;0m:", end = '')
-    print(" python operations.ppy <number1> <number 2>")
-    print("\033[1;34mExample\033[0;0m:", "\n    ", end = '')
-    print("\033[1;34mpython\033[0;0m", "operations.py 10 3")
-    exit()
+def usage():
+    print(colored('Usage:', 'blue'), "python operations.py <number1> <number2>")
+    print(colored('Example:', 'blue'), "\n\t python operations.py 10 3")
+    return
 
-def operations(args):
-    """Do the basic operations to two given numbers"""
-    if len(sys.argv) != 3 or args[1].isnumeric is False\
-        or args[2].isnumeric is False:
-        print_error()
+if len(sys.argv) == 1:
+    usage()
+elif len(sys.argv) == 2:
+    print(colored('InputError:', 'blue'), "not enough arguments\n")
+    usage()
+elif len(sys.argv) > 3:
+    print(colored('InputError:', 'blue'), "too many arguments\n")
+    usage()
+elif sys.argv[1].isnumeric() == False | sys.argv[2].isnumeric() == False:
+    print(colored('InputError:', 'blue'), "only numbers\n")
+    usage()
+else:
     a = int(sys.argv[1])
     b = int(sys.argv[2])
-    print("\033[1;34mSum\033[0;0m", end = '')
-    print(":       ", a + b)
-    print("\033[1;34mDifference\033[0;0m", end = '')
-    print(":", a - b)
-    print("\033[1;34mProduct\033[0;0m", end = '')
-    print(":   ", a * b)
-    if a == 0 or b == 0:
-        print("\033[1;34mQuotient\033[0;0m", end = '')
-        print(":   Error (div by zero)")
-        print("\033[1;34mRemainder\033[0;0m", end = '')
-        print(":  Error (modulo by zero)")
-    else :
-        print("\033[1;34mQuotient\033[0;0m", end = '')
-        print(":  ", a / b)
-        print("\033[1;34mRemainder\033[0;0m", end = '')
-        print(": ", a % b)
-
-operations(sys.argv)
+    print(colored('Sum:', 'blue'), "\t\t", (a + b))
+    print(colored('Difference:', 'blue'), "\t", (a - b))
+    print(colored('Product:', 'blue'), "\t", (a * b))
+    if b == 0:
+        print(colored('Quotient:', 'blue'), "\t ERROR (div by zero)")
+        print(colored('Reminder:', 'blue'), "\t ERROR (modulo by zero)")
+    else:
+        print(colored('Quotient:', 'blue'), "\t", (a / b))
+        print(colored('Reminder:', 'blue'), "\t", (a % b))
