@@ -1,34 +1,40 @@
+#! /usr/bin/python3
+
+import sys
 import random
 
-if __name__ == "__main__":
-    n = random.randint(1, 99)
-    i = 0
-    print("This is an interactive guessing game!\nYou have to ", end = '')
-    print("enter a number between 1 and 99 to find out the secret number.")
-    print("Type 'exit' to end the game.\nGood luck!\n")
-    while(1):
-        print("\033[1;34mWhat's your guess between 1 and 99?\033[0;0m")
-        i += 1
-        choice = input()
-        if choice == 'exit':
-            print("Goodby!")
-            exit()
-        try:
-            choice = int(choice)
-        except:
-            print("That's not a number.")
-            continue
-        if (choice < 1 or choice > 99):
-            print("Only numbers between 1 and 99!")
-        elif (choice < n):
-            print("Too low!")
-        elif (choice > n):
-            print("Too high!")
-        else:
+n = random.randint(1, 99)
+attemps = 0
+print ('This is an interactive guessing game!')
+print ('You have to enter a number between 1 and 99 to find out the secre number.')
+print('Type \'exit\' to end the game.\nGood luck!')
+
+while True:
+    print("What's your guess between 1 and 99?")
+    guess = input()
+    attemps += 1
+    ex = 0
+    try:
+        guess = int(guess)
+        if guess > n:
+            print('Too high!')
+        elif guess < n:
+            print('Too low!')
+        elif guess == n:
             if n == 42:
-                print("The answer to the ultimate... blablabla")
-            if (i > 1):
-                print("Congratulations! You've got it!\nYou won in", i, "attempts!")
+                print('The answer to the ultimate question of life, the universe\
+                      and everything is 42.')
+            if attemps == 1:
+                print('Congratulations! You got it on your first try!')
             else:
-                print("Contratulations! You got it on your first try!")
-            exit()
+                print("Congratulations, you've got it!\nYou won in "+ str(attemps) + " attempts!")
+            ex = 1
+    except:
+        if guess == 'exit':
+            ex = 1
+        else:
+            print('That\'s not a number.')
+    if ex == 1:
+        exit('Goodbye!')
+    
+

@@ -1,20 +1,22 @@
+#! /usr/bin/python3
+
 import sys
 import string
 
-def filterwords(str, n):
-    for simbol in string.punctuation :
-        str = str.replace(simbol, ' ')
-    words = str.split()
-    filtered = list('')
+def filter_words(str, n):
+    for i in string.punctuation :
+        str.replace(i, ' ')
+    words = str.split(" ")
+    filtered = []
     for word in words:
-        if len(word) > n :
+        if len(word) >= n:
             filtered.append(word)
     print(filtered)
 
-if __name__== '__main__':
+if __name__ == '__main__':
     try:
-        filterwords(str(sys.argv[1]), int(sys.argv[2]))
+        filter_words(str(sys.argv[1]), int(sys.argv[2]))
     except:
-        print("ERROR")
-        exit(1)
-    exit(0)
+        exit("Error")
+    exit()
+
