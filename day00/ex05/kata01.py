@@ -1,8 +1,14 @@
+#! /usr/bin/python3
+
 languages = {
     'Python': 'Guido van Rossum',
-    'Ruby' : 'Yukihiro Matsumoto',
+    'Ruby': 'Yukihiro Matsumoto',
     'PHP': 'Rasmus Lerdorf',
-    }
+}
 
-for key in languages:
-    print("\033[1;34m{}\033[0;0m was created by {}".format(key, languages[key]))
+for i in languages:
+    print(i, 'was created by', languages[i])
+
+for i, j in languages.items():
+    print(i, 'was created by', j)
+
