@@ -25,3 +25,6 @@ print(c)
 print("[0.5, 3] * 3.5 = "+ str(Vector([0.5, 3.5]) * 3.5))
 print("6.3 * [0.5, 3] = "+ str(6.3 * Vector([0.5, 3.5])))
 
+print("Testing division")
+print("[0.5, 3] / 3.5 = "+ str(Vector([0.5, 3.5]) / 3.5))
+print("6.3 / [0.5, 3] = "+ str(6.3 / Vector([0.5, 3.5])))

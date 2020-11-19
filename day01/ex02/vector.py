@@ -83,4 +83,17 @@ class Vector:
     def __rmul__(self, n):
         return (self * n)
         
-
+    def __truediv__(self, n):
+        if isinstance(n, int) or isinstance(n, float):
+            if n == 0:
+                exit("ERROR: division by 0")
+            new_value = []
+            for i in range(0, self.size):
+                new_value.append(self.values[i] / n)
+            ret = Vector(new_value)
+        else:
+            exit("ERROR: invalid division")
+        return ret
+    
+    def __rtruediv__(self, n):
+        return (self / n)
