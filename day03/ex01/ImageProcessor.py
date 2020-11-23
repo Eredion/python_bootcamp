@@ -14,8 +14,7 @@ class ImageProcessor():
 
     @staticmethod
     def display(array):
-        print(array)
-        print(pyplot.imshow(array))
+        pyplot.imshow(array)
 
 arr = ImageProcessor.load("../assets/img.png")
 ImageProcessor.display(arr)
